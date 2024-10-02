@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Гра "Вгадай число"</title>
+	</head>	
+	<body>
+		<script>
+			"use strict";
+			
+			// Генерація випадкового числа від 0 до 100
+			let guess = Math.random() * 100; 
+			guess = Math.floor(guess); // Округлення до цілого
+
+			let isPlaying = true; // Прапорець для циклу
+			let number; // Число, яке введе користувач
+			let count = 0; // Лічильник спроб
+			let answer = confirm("Зіграємо в гру 'Вгадай число'?"); 
+
+			if (answer) {
+				while (isPlaying) {
+					// Користувач вводить число
+					number = parseInt(prompt("Введіть число від 0 до 100")); 
+					count++; // Кількість спроб
+
+					// Перевірка, чи вгадав користувач число
+					if (number === guess) {
+						alert("Вітаємо, ви вгадали число!\nКількість спроб: " + count); 
+						isPlaying = false; // Вихід із циклу
+					} else if (number > guess) {
+						alert("Число менше, спробуйте ще раз.");
+					} else {
+						alert("Число більше, спробуйте ще раз.");
+					}
+				}
+			} else {
+				alert("Шкода. Може зіграємо в інший раз?");
+			}
+		</script>
+	</body>
+</html>
